@@ -1,0 +1,78 @@
+
+<html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Assignment-8 | Q-2</title>
+      <style>
+        body {
+          background-color: #EEEEEE;
+          color: #DA1212;
+          font-size: 30px;
+        }
+  
+        .container {
+          margin: auto;
+          text-align: center;
+        }
+  
+        label,
+        input {
+          display: block;
+          margin: 20px auto;
+        }
+  
+        input {
+          padding: 10px;
+          width: 400px;
+          font-size: 17px;
+        }
+        #submitBtn{
+            color: #DA1212;
+        }
+        
+        input::placeholder {
+          font-family: cursive;
+          text-align: center;
+        }
+      </style>
+    </head>
+  
+    <body>
+      <div class="container">
+        <form action="./responce.html" onsubmit="return validate()">
+          <label for="email">Enter name below</label>
+  
+          <input
+            required  
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Name Here...."
+          />
+            <label for="mobile">Enter mobile no below</label>
+            <input required type="number" name="mobile" id="mobile" placeholder="mobile here" maxlength="10" minlength="10"  pattern="[0-9]{10}">
+          <input type="submit" id="submitBtn"/>
+        </form>
+      </div>
+  
+      <script>
+        function validate(){
+          const name = document.querySelector("#name");
+          const mobile = document.querySelector("#mobile");
+          const textOnly = /[a-zA-Z]/;
+          let test = textOnly.test(name.value);
+          if(test == false){
+              document.querySelector('label').textContent = 'Enter only letters in name section';
+              return false;
+            }
+        else{
+            return true;
+          }
+        }
+       
+      </script>
+    </body>
+  </html>
+  
